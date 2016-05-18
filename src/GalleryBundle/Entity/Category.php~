@@ -44,7 +44,7 @@ class Category
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Image", mappedBy="Category")
+     * @ORM\ManyToMany(targetEntity="Image", mappedBy="categories")
      */
     private $images;
 
@@ -170,5 +170,10 @@ class Category
     public function getImages()
     {
         return $this->images;
+    }
+
+    public function __toString()
+    {
+        return $this->header;
     }
 }

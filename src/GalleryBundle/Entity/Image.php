@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @ORM\Entity(repositoryClass="GalleryBundle\Repository\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Image
+class Image implements \JsonSerializable
 {
     /**
      * @var int
@@ -57,7 +57,7 @@ class Image
      *  }
      * )
      */
-    private $categoryId;
+    private $categories;
 
     /**
      * @var int
@@ -340,5 +340,48 @@ class Image
     public function removeCategoryId(\GalleryBundle\Entity\Category $categoryId)
     {
         $this->categoryId->removeElement($categoryId);
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'path' => $this->path
+        ];
+    }
+
+    /**
+     * Add category
+     *
+     * @param \GalleryBundle\Entity\Category $category
+     *
+     * @return Image
+     */
+    public function addCategory(\GalleryBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \GalleryBundle\Entity\Category $category
+     */
+    public function removeCategory(\GalleryBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

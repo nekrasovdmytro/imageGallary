@@ -10,4 +10,8 @@ namespace GalleryBundle\Repository;
  */
 class ImageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getImagesByCategoryId()
+    {
+
+    }
 }

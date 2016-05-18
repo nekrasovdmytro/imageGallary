@@ -44,7 +44,7 @@ class Category
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Image", mappedBy="Category")
+     * @ORM\ManyToMany(targetEntity="Image", mappedBy="categories")
      */
     private $images;
 
