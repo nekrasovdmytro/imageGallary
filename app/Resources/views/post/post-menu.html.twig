@@ -1,0 +1,6 @@
+
+<ul class="nav nav-tabs nav-justified ">
+{% for post in posts %}
+        <li ><a href="{{ path('admin_post_index_one_menu', {'id' : post.id}) }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>

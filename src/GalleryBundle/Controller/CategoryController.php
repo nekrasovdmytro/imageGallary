@@ -12,7 +12,7 @@ use GalleryBundle\Form\CategoryType;
 /**
  * Category controller.
  *
- * @Route("/category")
+ * @Route("/admin/category")
  */
 class CategoryController extends Controller
 {

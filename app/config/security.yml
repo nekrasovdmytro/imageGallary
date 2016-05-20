@@ -36,11 +36,12 @@ security:
 
             pattern:    ^/
             http_basic: ~
-            provider: our_db_provider
+            provider: in_memory
 
             form_login:
               login_path: login
               check_path: login
+              default_target_path: /admin/image
 
             logout:
               path:   /logout
@@ -57,4 +58,4 @@ security:
     access_control:
             - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/logout, roles: ROLE_ADMIN }
-            - { path: ^/admin, roles: ROLE_ADMIN }
+            - { path: ^/admin/*, roles: ROLE_ADMIN }

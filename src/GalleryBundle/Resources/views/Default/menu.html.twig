@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#"><img style="position: relative; top:-60px" src="/images/rsz_lens.png" title="Photographer Valintyna Nekrasova"></a>
+            <a class="navbar-brand" href="#"><img  src="/images/rsz_camera.png" title="Photographer Valintyna Nekrasova"></a>
 
         </div>
 
@@ -20,6 +20,12 @@
                 <li><a href="#category/{{ c.id }}">{{ c.header }}</a></li>
                 {% endfor %}
             </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a nofolow="nofollow" noindex="noindex" href="{{ path('login') }}">Login</a></li>
+            </ul>
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

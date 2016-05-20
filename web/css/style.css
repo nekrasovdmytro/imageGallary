@@ -1,5 +1,22 @@
+.navbar-brand img {
+    margin-top: -15px;
+    width: 50px;
+    opacity: .5;
+}
+
+.navbar-brand img:hover {
+    opacity: .8;
+}
+
+.top-menu {
+    margin-top: 35px;
+}
+.top-menu a {
+    color:#000;
+}
+
 #gallery {
-    margin-top:100px;
+    margin-top:50px;
 }
 
 .navbar *:focus {
@@ -7,14 +24,56 @@
 }
 
 .title {
-    font-size:45px;
+    font-size:25px;
+    font-family: Tahoma;
+    margin-top: 35px;
+
+}
+
+.title_link{
+    text-decoration: none !important;
+    color: #222222 !important;
 }
 
 .title span {
     display: inline-block;
-    font-size:20px;
-    background: #008080;
+    font-size:17px;
     color:#fff;
-    padding:7px;
+    padding:7.5px;
     border-radius: 2px;
+    font-family:"Comic Sans MS";
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0ad4e+0,ea8100+50,f0ad4e+100 */
+    background: #f0ad4e; /* Old browsers */
+    background: -moz-linear-gradient(left,  #f0ad4e 0%, #ea8100 50%, #f0ad4e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #f0ad4e 0%,#ea8100 50%,#f0ad4e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #f0ad4e 0%,#ea8100 50%,#f0ad4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0ad4e', endColorstr='#f0ad4e',GradientType=1 ); /* IE6-9 */
+
+}
+
+.social {
+    width:35px;
+    padding:5px;
+}
+
+.contact {
+    font-size:18px;
+    margin-top: 33px;
+}
+
+.contact div{
+    font-size: 14px;
+}
+
+body{
+    background: url('/images/wood.jpg');
+    background-size: 100%;
+}
+
+.container-fluid {
+    background: rgba(255,255,255,.5);
 }

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="home_page")
      */
     public function indexAction()
     {
@@ -18,6 +18,16 @@ class DefaultController extends Controller
         $categories = $em->getRepository('GalleryBundle:Category')->findAll();
 
         return $this->render('GalleryBundle:Default:index.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function getHeaderCategoriesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('GalleryBundle:Category')->findAll();
+
+        return $this->render('category/categories.html.twig', [
             'categories' => $categories
         ]);
     }

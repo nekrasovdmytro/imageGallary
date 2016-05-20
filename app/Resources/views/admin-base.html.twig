@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Сімейний фотограф Валентина Некрасова, Львів{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.3.min.js"
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+            integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="/js/blazy.js" ></script>
+    <script src="/js/main.js" ></script>
+    <link rel="stylesheet" href='/css/style.css' />
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Admin panel</h1>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="{% if app.request.attributes.get('_route') == 'admin_post_index' %}active{% endif %}"><a href="{{ path('admin_post_index') }}">Pages</a></li>
+                <li role="presentation" class="{% if app.request.attributes.get('_route') == 'category_index' %}active{% endif %}"><a href="{{ path('category_index') }}">Category</a></li>
+                <li role="presentation" class="{% if app.request.attributes.get('_route') == 'image_index' %}active{% endif %}"  ><a href="{{ path('image_index') }}">Image</a></li>
+                <li role="presentation"><a href="{{ path('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-8"> {% block body %}{% endblock %}</div>
+    </div>
+
+</div>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,3 +1,7 @@
+app_post:
+    resource: "@AppBundle/Controller/PostController.php"
+    type:     annotation
+
 gallery:
     resource: "@GalleryBundle/Controller/"
     type:     annotation

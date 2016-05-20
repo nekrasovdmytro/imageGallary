@@ -12,7 +12,7 @@ use GalleryBundle\Form\ImageType;
 /**
  * Image controller.
  *
- * @Route("/image")
+ * @Route("/admin/image")
  */
 class ImageController extends Controller
 {
