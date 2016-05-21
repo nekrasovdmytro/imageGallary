@@ -24,8 +24,8 @@
 }
 
 .title {
-    font-size:25px;
-    font-family: Tahoma;
+    font-size:26px;
+    font-family: 'Playfair Display SC', serif;
     margin-top: 35px;
 
 }
@@ -41,17 +41,10 @@
     color:#fff;
     padding:7.5px;
     border-radius: 2px;
-    font-family:"Comic Sans MS";
+    font-family: 'Playfair Display SC', serif;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
     text-shadow: 0 0 1px rgba(0,0,0,0.1);
 
-
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0ad4e+0,ea8100+50,f0ad4e+100 */
-    background: #f0ad4e; /* Old browsers */
-    background: -moz-linear-gradient(left,  #f0ad4e 0%, #ea8100 50%, #f0ad4e 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left,  #f0ad4e 0%,#ea8100 50%,#f0ad4e 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  #f0ad4e 0%,#ea8100 50%,#f0ad4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0ad4e', endColorstr='#f0ad4e',GradientType=1 ); /* IE6-9 */
 
 }
 
@@ -71,11 +64,25 @@
 
 body{
     background: url('/images/wood2.png');
+    background-attachment: fixed;
 
 }
 
 .container-fluid {
-    background: rgba(255,255,255,.5);
-    padding-bottom: 100px;
+    background: rgba(255,255,255,.3);
+}
 
+.footer-text strong{
+    font-size: 18px;
+}
+
+hr {
+    background: url('/images/fancy-line.png') no-repeat center !important;
+    height: 50px !important;
+    border : 0;
+    margin : 1em 0;
+}
+.post-h1{
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
 }
