@@ -3,6 +3,7 @@
 namespace GalleryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GalleryBundle\SimpleImage\SimpleImage;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -120,6 +121,11 @@ class Image implements \JsonSerializable
             $this->getUploadRootDir(),
             $this->path
         );
+
+        $simpleImage = new SimpleImage();
+        $simpleImage->load($this->getAbsolutePath());
+        $simpleImage->resizeToHeight(350);
+        $simpleImage->save(str_replace('images', 'small_images', $this->getAbsolutePath()), \IMAGETYPE_JPEG, 99, 777);
 
         $this->setFile(null);
     }

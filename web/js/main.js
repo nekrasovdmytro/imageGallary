@@ -39,19 +39,29 @@ modules.add('category', function(){
         if (data.count > 0) {
 
             $.each(data.images, function (id, image) {
+
+                var fancyBoxLink = $('<a/>', {
+                    'href' : '/uploads/images/' + image.path,
+                    'class' : 'show-image',
+                    'rel' : 'group'
+                });
+
                 var imageData = $('<img/>', {
                     'class': 'img-thumbnail b-lazy'
                 });
 
+
                 imageData.attr('src', '/images/placeholder.png');
-                imageData.attr('data-src', '/uploads/images/' + image.path);
-                imageData.attr('data-src-small', '/uploads/images/' + image.path);
+                imageData.attr('data-src', '/uploads/small_images/' + image.path);
+                imageData.attr('data-src-small', '/uploads/small_images/' + image.path);
 
                 imageData.css({'max-height': '350px'});
 
 
+                fancyBoxLink.append(imageData);
+
                 imageWrapElement.append(
-                    imageData
+                    fancyBoxLink
                 );
 
                 galleryContainer.append(imageWrapElement);
@@ -72,6 +82,15 @@ modules.add('category', function(){
                     }, 200);
                 }
             });
+
+            $("a.show-image").fancybox(
+                {'transitionIn'	:	'elastic',
+                    'transitionOut'	:	'elastic',
+                    'speedIn'		:	600,
+                    'speedOut'		:	200,
+                    'overlayShow'	:	false}
+            );
+
         } else {
             galleryContainer.html("empty category!!!");
         }
@@ -100,19 +119,27 @@ modules.add('main', function(){
         if (data.count > 0) {
 
             $.each(data.images, function (id, image) {
+
+                var fancyBoxLink = $('<a/>', {
+                    'href' : '/uploads/images/' + image.path,
+                    'class' : 'show-image',
+                    'rel' : 'group'
+                });
+
                 var imageData = $('<img/>', {
                     'class': 'img-thumbnail b-lazy'
                 });
 
                 imageData.attr('src', '/images/placeholder.png');
-                imageData.attr('data-src', '/uploads/images/' + image.path);
-                imageData.attr('data-src-small', '/uploads/images/' + image.path);
+                imageData.attr('data-src', '/uploads/small_images/' + image.path);
+                imageData.attr('data-src-small', '/uploads/small_images/' + image.path);
 
                 imageData.css({'max-height': '350px'});
 
+                fancyBoxLink.append(imageData);
 
                 imageWrapElement.append(
-                    imageData
+                    fancyBoxLink
                 );
 
                 galleryContainer.append(imageWrapElement);
@@ -133,6 +160,14 @@ modules.add('main', function(){
                     }, 200);
                 }
             });
+
+            $("a.show-image").fancybox(
+                {'transitionIn'	:	'elastic',
+                    'transitionOut'	:	'elastic',
+                    'speedIn'		:	600,
+                    'speedOut'		:	200,
+                    'overlayShow'	:	false}
+            );
         } else {
             galleryContainer.html("empty category!!!");
         }
