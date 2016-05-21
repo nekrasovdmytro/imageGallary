@@ -76,4 +76,6 @@ body{
 
 .container-fluid {
     background: rgba(255,255,255,.5);
+    padding-bottom: 100px;
+
 }
