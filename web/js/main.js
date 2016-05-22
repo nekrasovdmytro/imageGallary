@@ -65,8 +65,11 @@ modules.add('category', function(){
                 );
 
                 galleryContainer.append(imageWrapElement);
+
             });
 
+            $("html, body").animate({ scrollTop: galleryContainer.offset().top }, 1000);
+            
             var bLazy = new Blazy({
                 breakpoints: [{
                     width: 420 // Max-width
