@@ -44,12 +44,11 @@ class DefaultController extends Controller
         /**
          * @var $category \GalleryBundle\Entity\Category
          */
-        $images = $em->getRepository('GalleryBundle:Image')->findBy([],
+        $images = $em->getRepository('GalleryBundle:Image')->findBy(['isMain' => 1],
             ['id' => 'DESC'],
             20,
             0
         );
-
 
         return new JsonResponse(['images' => $images, 'header' => 'main', 'count' => count($images)]);
     }
