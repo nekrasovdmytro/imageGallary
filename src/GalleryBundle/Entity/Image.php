@@ -73,6 +73,13 @@ class Image implements \JsonSerializable
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isMain", type="boolean")
+     */
+    private $isMain;
 
     /**
      * Sets file.
@@ -389,5 +396,29 @@ class Image implements \JsonSerializable
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set isMain
+     *
+     * @param boolean $isMain
+     *
+     * @return Image
+     */
+    public function setIsMain($isMain)
+    {
+        $this->isMain = $isMain;
+
+        return $this;
+    }
+
+    /**
+     * Get isMain
+     *
+     * @return boolean
+     */
+    public function getIsMain()
+    {
+        return $this->isMain;
     }
 }

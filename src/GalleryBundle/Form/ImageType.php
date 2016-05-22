@@ -26,6 +26,7 @@ class ImageType extends AbstractType
                 'data' =>  "empty description"
             ])
             ->add('categories')
+            ->add('isMain')
         ;
     }
     
