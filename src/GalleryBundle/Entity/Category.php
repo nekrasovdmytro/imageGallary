@@ -45,6 +45,7 @@ class Category
 
     /**
      * @ORM\ManyToMany(targetEntity="Image", mappedBy="categories")
+     * @ORM\OrderBy({"id" = "DESC", "sort" = "ASC"})
      */
     private $images;
 
