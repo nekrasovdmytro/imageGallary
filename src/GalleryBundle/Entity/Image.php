@@ -82,6 +82,13 @@ class Image implements \JsonSerializable
     private $isMain;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="photoshootHash", type="string", length=32)
+     */
+    private $photoshootHash;
+
+    /**
      * Sets file.
      *
      * @param UploadedFile $file
@@ -360,7 +367,8 @@ class Image implements \JsonSerializable
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'path' => $this->path
+            'path' => $this->path,
+            'hash' => $this->photoshootHash
         ];
     }
 
@@ -420,5 +428,29 @@ class Image implements \JsonSerializable
     public function getIsMain()
     {
         return $this->isMain;
+    }
+
+    /**
+     * Set photoshootHash
+     *
+     * @param string $photoshootHash
+     *
+     * @return Image
+     */
+    public function setPhotoshootHash($photoshootHash)
+    {
+        $this->photoshootHash = $photoshootHash;
+
+        return $this;
+    }
+
+    /**
+     * Get photoshootHash
+     *
+     * @return string
+     */
+    public function getPhotoshootHash()
+    {
+        return $this->photoshootHash;
     }
 }

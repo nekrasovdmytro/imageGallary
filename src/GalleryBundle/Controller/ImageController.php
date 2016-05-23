@@ -2,6 +2,7 @@
 
 namespace GalleryBundle\Controller;
 
+use GalleryBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -27,10 +28,49 @@ class ImageController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $images = $em->getRepository('GalleryBundle:Image')->findAll();
+        $categories = $em->getRepository('GalleryBundle:Category')->findAll();
 
         return $this->render('image/index.html.twig', array(
             'images' => $images,
+            'categories' => $categories
         ));
+    }
+
+    /**
+     * Lists all Image entities.
+     *
+     * @Route("/upload_many", name="image_upload_many")
+     * @Method("POST")
+     */
+    public function uploadImagesAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $photoshotHash = md5(time());
+
+        /**
+         * @var \GalleryBundle\Entity\Category $category
+         */
+        $category = $em->getRepository('GalleryBundle:Category')->findOneById($request->get('categoryId'));
+
+        foreach ($request->files->get('files') as $file) {
+            /**
+             * @var \GalleryBundle\Entity\Image $image
+             */
+            $image = new Image();
+            $image->addCategory($category);
+            $image->setName($request->get('text'));
+            $image->setDescription($request->get('text'));
+            $image->setSort(0);
+            $image->setIsMain(0);
+            $image->setFile($file);
+            $image->setPhotoshootHash($photoshotHash);
+
+            $em->persist($image);
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('image_index');
     }
 
     /**

@@ -82,6 +82,13 @@ class Image implements \JsonSerializable
     private $isMain;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="photoshootHash", type="string", length=32)
+     */
+    private $photoshootHash;
+
+    /**
      * Sets file.
      *
      * @param UploadedFile $file
@@ -396,5 +403,29 @@ class Image implements \JsonSerializable
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set isMain
+     *
+     * @param boolean $isMain
+     *
+     * @return Image
+     */
+    public function setIsMain($isMain)
+    {
+        $this->isMain = $isMain;
+
+        return $this;
+    }
+
+    /**
+     * Get isMain
+     *
+     * @return boolean
+     */
+    public function getIsMain()
+    {
+        return $this->isMain;
     }
 }

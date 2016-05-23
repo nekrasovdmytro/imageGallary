@@ -38,6 +38,7 @@ modules.add('category', function(){
 
         if (data.count > 0) {
 
+
             $.each(data.images, function (id, image) {
 
                 var fancyBoxLink = $('<a/>', {
@@ -47,7 +48,9 @@ modules.add('category', function(){
                 });
 
                 var imageData = $('<img/>', {
-                    'class': 'img-thumbnail b-lazy'
+                    'class': 'img-thumbnail b-lazy ' + (image.hash != '' ? 'hover-title' : '').toString(),
+                    'title': image.hash != '' ? image.name : '',
+                    'hash': image.hash != '' ? image.hash : ''
                 });
 
 
@@ -68,8 +71,10 @@ modules.add('category', function(){
 
             });
 
-            $("html, body").animate({ scrollTop: galleryContainer.offset().top }, 1000);
-            
+            $( '.hover-title' ).tooltip();
+
+            $("html, body").animate({ scrollTop: galleryContainer.offset().top - 30 }, 1000);
+
             var bLazy = new Blazy({
                 breakpoints: [{
                     width: 420 // Max-width
