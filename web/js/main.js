@@ -48,9 +48,10 @@ modules.add('category', function(){
                 });
 
                 var imageData = $('<img/>', {
-                    'class': 'img-thumbnail b-lazy ' + (image.hash != '' ? 'hover-title' : '').toString(),
-                    'title': image.hash != '' ? image.name : '',
-                    'hash': image.hash != '' ? image.hash : ''
+                    'class': 'img-thumbnail b-lazy img-responsive ' + (image.hash != '' ? 'hover-title' : '').toString(),
+                    'title': image.name + ' - фотограф Валентина Некрасова, Львів',
+                    'hash': image.hash != '' ? image.hash : '',
+                    'alt': 'фотограф Валентина Некрасова, Львів'
                 });
 
 
@@ -58,7 +59,7 @@ modules.add('category', function(){
                 imageData.attr('data-src', '/uploads/small_images/' + image.path);
                 imageData.attr('data-src-small', '/uploads/small_images/' + image.path);
 
-                imageData.css({'max-height': '350px'});
+                imageData.css({'height': '350px'});
 
 
                 fancyBoxLink.append(imageData);
@@ -71,23 +72,18 @@ modules.add('category', function(){
 
             });
 
+
+
             $( '.hover-title' ).tooltip();
 
             $("html, body").animate({ scrollTop: galleryContainer.offset().top - 30 }, 1000);
 
             var bLazy = new Blazy({
                 breakpoints: [{
-                    width: 420 // Max-width
-                    , src: 'data-src-small'
+                    src: 'data-src-small'
                 }]
                 , success: function (element) {
-                    setTimeout(function () {
-                        // We want to remove the loader gif now.
-                        // First we find the parent container
-                        // then we remove the "loading" class which holds the loader image
-                        var parent = element.parentNode;
-                        parent.className = parent.className.replace(/\bloading\b/, '');
-                    }, 200);
+
                 }
             });
 
@@ -155,17 +151,10 @@ modules.add('main', function(){
 
             var bLazy = new Blazy({
                 breakpoints: [{
-                    width: 420 // Max-width
-                    , src: 'data-src-small'
+                     src: 'data-src-small'
                 }]
                 , success: function (element) {
-                    setTimeout(function () {
-                        // We want to remove the loader gif now.
-                        // First we find the parent container
-                        // then we remove the "loading" class which holds the loader image
-                        var parent = element.parentNode;
-                        parent.className = parent.className.replace(/\bloading\b/, '');
-                    }, 200);
+
                 }
             });
 
@@ -176,6 +165,7 @@ modules.add('main', function(){
                     'speedOut'		:	200,
                     'overlayShow'	:	false}
             );
+
         } else {
             galleryContainer.html("empty category!!!");
         }
