@@ -86,3 +86,11 @@ hr {
     text-align: center;
     font-family: 'Playfair Display SC', serif;
 }
+
+#gallery{
+    text-align: center;
+}
+
+#gallery img:hover{
+    opacity: 0.8;
+}
