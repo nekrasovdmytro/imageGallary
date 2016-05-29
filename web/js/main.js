@@ -76,7 +76,7 @@ modules.add('category', function(){
 
             $( '.hover-title' ).tooltip();
 
-            $("html, body").animate({ scrollTop: galleryContainer.offset().top - 30 }, 1000);
+            $("html, body").animate({ scrollTop: galleryContainer.offset().top - 125 }, 1000);
 
             var bLazy = new Blazy({
                 breakpoints: [{
