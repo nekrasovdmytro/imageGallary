@@ -68,7 +68,16 @@ class ImageController extends Controller
             $em->persist($image);
         }
 
+        /**
+         * @var \GalleryBundle\GalleryPusher\GalleryPusher $pusher
+         */
+        $pusher = $this->get('gallery.pusher');
+        $data = [
+            'category_id' => $category->getId()
+        ];
+
         $em->flush();
+        $pusher->triggerMessage('update_images', $data);
 
         return $this->redirectToRoute('image_index');
     }

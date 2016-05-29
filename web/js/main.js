@@ -204,4 +204,18 @@ $(function(){
     } else {
         hashCallback();
     }
+
+    var pusher = new Pusher('7ba9ad15658d0adf9a42', {
+        encrypted: true
+    });
+
+    var channel = pusher.subscribe('gallery_channel');
+    channel.bind('update_images', function(data) {
+        console.log(data);
+
+        if (confirm("На сервер загружена нова колекція фото, бажаєте переглянути?")) {
+            window.location.href = '/#category/' + data.category_id;
+        }
+    });
+
 })
