@@ -10,3 +10,6 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
+    pusher_auth_key: '7ba9ad15658d0adf9a42'
+    pusher_secret: '1d8cbda26eee27c5b293'
+    pusher_app_id: 211426
