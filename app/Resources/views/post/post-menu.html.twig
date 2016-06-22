@@ -1,9 +1,9 @@
 
-<ul class="nav nav-tabs nav-justified ">
+<ul class="nav nav-tabs nav-justified top-menu">
         <li ><a href="{{ path('home_page')}}">Портфоліо</a></li>
 {% for post in posts %}
         {% if post.isShow %}
-        <li ><a href="{{ path('admin_post_index_one_menu', {'id' : post.id}) }}">{{ post.title }}</a></li>
+        <li><a href="{{ path('admin_post_index_one_menu', {'id' : post.id}) }}">{{ post.title }}</a></li>
         {% endif %}
 {% endfor %}
 </ul>
