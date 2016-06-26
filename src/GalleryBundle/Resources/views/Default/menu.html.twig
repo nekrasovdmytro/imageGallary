@@ -23,7 +23,11 @@
 
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a nofolow="nofollow" noindex="noindex" href="{{ path('login') }}">Login</a></li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li><a nofolow="nofollow" noindex="noindex" href="{{ path('admin_post_index') }}">{{ app.user.username }}</a></li>
+                {% else %}
+                    <li><a nofolow="nofollow" noindex="noindex" href="{{ path('login') }}">Login</a></li>
+                {% endif %}
             </ul>
 
         </div><!-- /.navbar-collapse -->
