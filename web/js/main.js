@@ -99,7 +99,7 @@ modules.add('category', function(){
             galleryContainer.html("empty category!!!");
         }
 
-        document.title = data.header + ' --- Сімейний фотограф Валентина Некрасова';
+        document.title = data.header + ' --- весільний та сімейний фотограф Валентина Некрасова';
 
     });
 
@@ -170,7 +170,7 @@ modules.add('main', function(){
             galleryContainer.html("empty category!!!");
         }
 
-        document.title = 'Сімейний фотограф Валентина Некрасова, Львів';
+        document.title = 'Весільний та сімейний фотограф Валентина Некрасова, Львів';
 
     });
 
